@@ -1,0 +1,73 @@
+# Git
+.git/
+.gitattributes
+.gitignore
+.gitlab-ci.yml
+.github/
+
+# Build outputs and caches
+node_modules/  # installed inside container (Linux native addons)
+*.tsbuildinfo
+coverage/
+.cache/
+.pnpm-store/
+.storages/
+.sessions/
+.artifacts/
+.typert-*/
+dist-exe/
+
+# Documentation (not needed for runtime)
+docs/
+website/
+
+# Tests
+examples/
+tests/
+*.spec.ts
+*.e2e.ts
+*.snapshot.ts
+*.perf.ts
+*.stress.ts
+
+# Scripts (not needed for runtime)
+scripts/
+
+# Native addon sources (not needed for runtime, built artifacts come from vendor)
+native/
+patches/
+
+# Agent notes and workflows
+.agents/
+.claude/
+.worktrees/
+worktrees/
+
+# Python SDK (not needed for Node.js runtime)
+python/
+
+# Environment files
+.env
+.env.*
+*.local.md
+
+# IDE
+.vscode/
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Config files for CI/lint (not needed for runtime)
+.editorconfig
+.jscpd.json
+.oxlintrc.json
+.oxlintrc.staged.json
+.rgignore
+knip.json
+lefthook.yml
+pytest.ini
+CONTRIBUTING.*
+BENCHMARK.md
+THIRD_PARTY_NOTICES.md

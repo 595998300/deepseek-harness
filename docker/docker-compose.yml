@@ -1,0 +1,21 @@
+services:
+  dsh:
+    # 使用预构建的镜像，通过 docker build 构建
+    image: 595998300/deepseek-harness:latest
+    container_name: dsh
+    # 使用 host 网络模式，容器监听 127.0.0.1:3000 直接暴露到宿主机
+    network_mode: host
+    volumes:
+      # Persist session data, settings, and user configuration
+      - dsh_home:/home/dsh/.dsh
+    environment:
+      - DSH_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    # Capabilities needed for node-pty (subprocess execution)
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+
+volumes:
+  dsh_home:

@@ -1,0 +1,8 @@
+# Override webserver bind host to 0.0.0.0 for container use.
+# The CLI's --host flag rejects 0.0.0.0 for safety (prevents accidental
+# network exposure), but in a Docker container we explicitly want the
+# process to listen on all interfaces so the host can reach it through
+# Docker's port mapping. This patch is applied via --patch.
+- id: webserver
+  config:
+    host: 0.0.0.0
